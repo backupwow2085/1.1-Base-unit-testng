@@ -1,9 +1,28 @@
 package ru.netology.unit;
 
-public class CashbackHackService {
-    private final int boundary = 1000;
+import org.junit.Assert;
+import org.junit.Test;
+import ru.netology.unit.CashbackHackService;
 
-    public int remain(int amount) {
-        return boundary - amount % boundary;
+public class CashbackHackServiceTest {
+
+    @Test
+    public void shouldReturn100WhenAmount900() {
+        CashbackHackService service = new CashbackHackService();
+
+        int actual = service.remain(900);
+        int expected = 100;
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldReturn0WhenAmount1000() {
+        CashbackHackService service = new CashbackHackService();
+
+        int actual = service.remain(1000);
+        int expected = 0;
+
+        Assert.assertEquals(expected, actual);
     }
 }
